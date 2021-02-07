@@ -9,15 +9,15 @@ import os
 # Einstellungen
 #
 
-# GPIO-Bezeichnungien (BCM) im Skript verwenden
+# GPIO-Bezeichnungen (BCM) im Skript verwenden
 GPIO.setmode(GPIO.BCM)
 
 # LMS Einstellungen
-# Player, de rmit den Tasten gesteuert werden soll
+# Player, der mit den Tasten gesteuert werden soll
 player = "02:a7:37:bc:bd:1d"
 # Host Deines Logitech Media Server (oder IP-Adresse)
 server = "192.168.3.213"
-# Port asm LMS für CLI KOmmandos
+# Port am LMS für CLI Kommandos
 port = "9000"
 
 # GPIO-Pins Drehimpulsgeber - gemeinsamer PIN auf +3.3V
@@ -39,16 +39,16 @@ cmd_a = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"m
 cmd_b = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"mixer\",\"volume\",\"-5\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 
 # LMS Kommandos Pushbuttons
-# Play Favorit 1
+# Play Favorit 1 (Liste startet mit 0)
 cmd_c = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:0\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 # Play Favorit 2
-cmd_d = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:2\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
+cmd_d = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:1\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 # Play Favorit 3
-cmd_e = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:1\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
+cmd_e = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:2\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 # Play Favorit 4
-cmd_f = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:9\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
+cmd_f = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:3\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 # Play Favorit 5
-cmd_g = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:8\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
+cmd_g = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"favorites\",\"playlist\",\"play\",\"item_id:4\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 # Stop
 cmd_h = "curl -s -H \"Content-Type: application/json\" -X POST -d '{\"id\":1,\"method\":\"slim.request\",\"params\":[\"" + player + "\", [\"mode\",\"stop\"]]}' http://" + server + ":" + port + "/jsonrpc.js"
 
